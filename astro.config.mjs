@@ -3,6 +3,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 import node from '@astrojs/node';
 
@@ -11,7 +12,8 @@ export default defineConfig({
   site: 'http://localhost:4321',
   integrations: [mdx(), sitemap()],
   output: 'static',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: cloudflare(),
+  // adapter: node({
+  //   mode: 'standalone',
+  // }),
 });
